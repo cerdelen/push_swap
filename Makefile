@@ -25,7 +25,7 @@ SRCS = 	helperfunctionsforlists.c  operation_pa.c  operation_ra.c  operation_rr.
 OBJS = $(SRCS:.c=.o)
 
 all: $(OBJS)
-	$(MAKE) bonus -C Libft	
+	$(MAKE) -C Libft	
 	$(AR) $(NAME).a $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) push_swap.a ./Libft/libft.a
 
