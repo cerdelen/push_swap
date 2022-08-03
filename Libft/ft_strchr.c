@@ -24,19 +24,9 @@
 */
 
 char	*ft_strchr(const char *s, int c)
-{
-	int		i;
-	char	*ptr;
-
-	ptr = (char *) s;
-	i = 0;
-	while (ptr[i] != '\0')
-	{
-		if (ptr[i] == c)
-			return (ptr + i);
-		i++;
-	}
-	if (c == '\0')
-		return (ptr + i);
-	return (NULL);
+{	
+	while (*s != (unsigned char) c)
+		if (!*s++)
+			return (0);
+	return ((char *)s);
 }

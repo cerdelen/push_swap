@@ -32,7 +32,7 @@ void	sort_arr(int *arr_a, int max)
 	int	temp;
 
 	i = 0;
-	while (i < max)
+	while (i < max - 1)
 	{
 		i++;
 		if (arr_a[i] < arr_a[i - 1])

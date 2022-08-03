@@ -22,6 +22,8 @@
 
 # include <stdio.h>
 
+# include <unistd.h>
+
 int		case_1_of_3_value_permutation(t_list **stack_a);
 int		case_2_of_3_value_permutation(t_list **stack_a);
 int		case_3_of_3_value_permutation(t_list **stack_a);
@@ -35,7 +37,7 @@ void	reapply_values(t_list **stack_x, int max);
 int		sortbigstack(t_list **stack_a, t_list **stack_b);
 t_list	*createinput(int argc, char **argv, int *tab);
 void	freecontent(void *elem);
-int		free_remains(t_list **stack_a, int *tab);
+int		free_remains(t_list **stack_a, t_list **stack_b, int *tab);
 void	operation_sa(t_list **stack_a);
 void	operation_sb(t_list **stack_b);
 void	operation_ss(t_list **stack_a, t_list **stack_b);

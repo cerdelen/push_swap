@@ -67,7 +67,7 @@ int	sort_5(t_list **stack_a, t_list **stack_b)
 	{
 		ptr = *stack_a;
 		value = *(int *)ptr->content;
-		if (value == 0 || value == 1)
+		if (value == 1 || value == 0)
 			operation_pb(stack_a, stack_b);
 		else
 			operation_ra(stack_a);

@@ -18,14 +18,13 @@ t_list	*createinput(int argc, char **argv, int *tab)
 	t_list				*new;
 	int					ind;
 
-	ind = 1;
+	ind = 0;
 	stack_a = NULL;
-	while (argc > 1)
+	while (ind < argc - 1)
 	{
-		tab[ind] = ft_atoi(argv[ind]);
+		tab[ind] = ft_atoi(argv[ind + 1]);
 		new = ft_lstnew(&tab[ind]);
 		ft_lstadd_back(&stack_a, new);
-		argc--;
 		ind++;
 	}
 	return (stack_a);

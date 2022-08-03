@@ -25,6 +25,7 @@ void	operation_sb(t_list **stack_b)
 		thirdelement = secondelement ->next;
 		secondelement->next = firstelement;
 		firstelement->next = thirdelement;
+		*stack_b = secondelement;
 	}
 	write(1, "sb\n", 3);
 }

@@ -29,9 +29,10 @@ void	free_elements(t_list **stack_a)
 	}
 }
 
-int	free_remains(t_list **stack_a, int *tab)
+int	free_remains(t_list **stack_a, t_list **stack_b, int *tab)
 {
 	free_elements(stack_a);
+	free_elements(stack_b);
 	free(tab);
 	return (0);
 }

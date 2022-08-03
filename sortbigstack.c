@@ -54,12 +54,38 @@ int	sorting_helper(int i, int size, t_list **stack_a, t_list **stack_b)
 	return (j);
 }
 
+// int	sortbigstack(t_list **stack_a, t_list **stack_b)
+// {
+// 	int	size;
+// 	int	max_num;
+// 	int	max_bits;
+// 	int	i;
+
+// 	size = ft_lstsize(*stack_a);
+// 	max_num = size - 1;
+// 	max_bits = 0;
+// 	i = 0;
+// 	while ((max_num >> max_bits) != 0)
+// 		++max_bits;
+// 	while (i < max_bits && !is_sorted(stack_a))
+// 	{
+// 		sorting_helper(i, size, stack_a, stack_b);
+// 		while (!stack_empty(stack_b))
+// 			operation_pa(stack_a, stack_b);
+// 		i++;
+// 	}
+// 	return (0);
+// }
+void	print_lst_content_int(void *content);
+
+
 int	sortbigstack(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 	int	max_num;
 	int	max_bits;
 	int	i;
+	int	*temp;
 
 	size = ft_lstsize(*stack_a);
 	max_num = size - 1;
@@ -67,12 +93,22 @@ int	sortbigstack(t_list **stack_a, t_list **stack_b)
 	i = 0;
 	while ((max_num >> max_bits) != 0)
 		++max_bits;
-	while (i < max_bits && !is_sorted(stack_a))
+	while (i < max_bits - 1 && !is_sorted(stack_a))
 	{
-		sorting_helper(i, size, stack_a, stack_b);
-		while (!stack_empty(stack_b))
-			operation_pa(stack_a, stack_b);
+		sorting_helper(i, ft_lstsize(*stack_a), stack_a, stack_b);
 		i++;
+		for(int count = ft_lstsize(*stack_b); count > 0; count--)
+		{
+			temp = (int *)(*stack_b)->content;
+			if (((*temp >> i) & 1) == 1)
+				operation_pa(stack_a, stack_b);
+			else
+				operation_rb(stack_b);
+		}
 	}
+
+	sorting_helper(i, ft_lstsize(*stack_a), stack_a, stack_b);
+	while (!stack_empty(stack_b))
+			operation_pa(stack_a, stack_b);
 	return (0);
 }
